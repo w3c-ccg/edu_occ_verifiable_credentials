@@ -73,3 +73,4 @@ Nate's proposed update below uses verification.type like all other Open Badge ve
 - Open Badges verifier would be able to reuse the LD verification libraries.
 - Note for Nate: If we like this approach, we should rethink adding Blockcerts as an IMS extension in the previously-described way. The approach here allows Open Badges to get Blockcerts (and more) for free. We could prototype and start using it on the Blockcerts side as a v3 opt-in feature (to vet it).
 - Note from Nate: I consistently raise objections to adding Blockcerts as an extension; I think it should be added like this instead. If the DID spec and commmunity are ready for first half of 2018 we can do this all at once as Open Badges 2.1.
+- Reply to Nate: I strongly agree. This is the direction we want. I will bring this up at the next IMS meeting.
