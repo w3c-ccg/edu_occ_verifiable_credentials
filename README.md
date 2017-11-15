@@ -8,11 +8,11 @@ Dave Longley described an approach that addresses concerns about integrating Ope
 
 ## Approach
 
-Nate, Kim, and Dave's approaches all use the basic structure of a Verifiable Claim, with an Open Badge Assertion embedded.
+The basic structure is a Verifiable Claim with an Open Badge Assertion embedded.
 
-Kim and Nate fleshed out the inner Assertio, and it looked like the following. Note that the claim has a term `earnedAssertion` (we made this up on the fly), where the Open Badge assertion goes.
+Kim and Nate fleshed out the inner `Assertion` as follows. The claim has a term `earnedAssertion` (we made this up on the fly), where the Open Badge assertion goes.
 
-The highlight from Dave is in the new `verification` type, which I've called `useVerificationOfVerifiableClaim` as a placeholder. This solves the biggest duplication concern we had, about how Open Badges verification and VC verification integrate. This effectively says -- back out a level to use Verifiable Claims verification.
+Dave's innocation is the new `verification` type, which I've called `useVerificationOfVerifiableClaim` as a placeholder. This effectively says -- back out a level to use Verifiable Claims verification. This solves the biggest confusion IMO -- how Open Badges verification and VC verification work together. 
 
 
 ```
@@ -55,6 +55,6 @@ The highlight from Dave is in the new `verification` type, which I've called `us
 
 ## Analysis
 
-- Dave concluded (similarly to Kim and Nate) that some duplication (e.g. the Issuer type) might be unavoidable, but is likely the best path forward for backcompat
-- The duplication that would cause the most problem in the future is verification, which this handles nicely by delegating to VC verification. Open Badges verifier should be able to reuse the LD verification libraries.
-- Note for Nate: If we like this approach, we should rethink adding Blockcerts as an IMS extension in the previously-described way. The approach sketched out here allows Open Badges to get Blockcerts (and more) for free. We could prototype and start using it on the Blockcerts side as a v3 opt-in feature.
+- Dave concluded (Kim and Nate similarly) that some duplication (e.g. the `Issuer` type) might be unavoidable, but is likely the best path forward for backcompat
+- Open Badges verifier would be able to reuse the LD verification libraries.
+- Note for Nate: If we like this approach, we should rethink adding Blockcerts as an IMS extension in the previously-described way. The approach here allows Open Badges to get Blockcerts (and more) for free. We could prototype and start using it on the Blockcerts side as a v3 opt-in feature (to vet it).
