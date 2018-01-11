@@ -1,5 +1,5 @@
 # About
-There is a lot of interest in interoperability of Open Badges and Verifiable Claims. This repo contains our goals, design drafts, and other research related to achieving interoperabilty.
+There is a lot of interest in interoperability of Open Badges and Educational/Occupational Verifiable Credentials. This repo contains our goals, design drafts, and other research related to achieving interoperabilty.
 
 This effort will eventually result in requirements, use cases, and/or draft specs to be formalized in the appropriate standards group. For now, our priorities are:
 - exploring the problem space
@@ -16,4 +16,4 @@ This effort will eventually result in requirements, use cases, and/or draft spec
 - Use DIDs for recipient and issuer id
 
 # Efforts
-- [Open Badge Assertions as Verifiable Claims](open_badge_assertions_as_verifiable_claims.md)
+- [Open Badge Assertions as Verifiable Credentials](open_badge_assertions_as_verifiable_credentials.md)
