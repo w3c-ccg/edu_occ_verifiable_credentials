@@ -1,17 +1,17 @@
-# Open Badges Assertions as Verifiable Claims
+# Open Badges Assertions as Verifiable Credentials
 
-> We may want to break this up; i.e. work on DIDs after Verifiable Claims
+> We may want to break this up; i.e. work on DIDs after Verifiable Credentials
 
 ## Goals
-1. Express Open Badge Assertions as Verifiable Claims
+1. Express Open Badge Assertions as Verifiable Credentials
 2. Allow the Open Badge Validator to be aware of LD Signature Verification (including Blockcerts)
 3. Allow recipients and issuers to be identified by DIDs
 
 ## Approach
 
-The basic structure is a Verifiable Claim with an Open Badge Assertion embedded in the `claim`. In this example, the issuer and recipient are identified by DIDs.
+The basic structure is a Verifiable Credentials with an Open Badge Assertion embedded in the `claim`. In this example, the issuer and recipient are identified by DIDs.
 
-The new `verification` type is called `VerifiableClaim2017`. It allows us to bridge the Open Badges validator to Verifiable Claims verification. The Open Badge validator will respond to this by delegating signature verification to an LD signature/verification library. 
+The new `verification` type is called `VerifiableClaim2017`. It allows us to bridge the Open Badges validator to Verifiable Credentials verification. The Open Badge validator will respond to this by delegating signature verification to an LD signature/verification library. 
 
 This example adds existing Open Badges data for recipient and issuer, even though this is duplicative. The recipient data could probably be dropped without much harm. If the DID spec and at least one DID Method Spec are ready enough for primetime, perhaps we could hydrate the issuer data from a resolved identity document. At least for now, OB spec and implementations expect id, type, name, url, and email values to exist for issuers, so this avoids a breaking change.
 
