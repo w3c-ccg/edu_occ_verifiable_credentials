@@ -7,13 +7,29 @@ This effort will eventually result in requirements, use cases, and/or draft spec
 - getting broader community feedback
 
 # Goals and use cases
+- Unify Open Badges and Verifiable Claims schema
+  - Wrap and sign an assertion with verifiable claims linked data signature
+  - [Open Badge Assertions as Verifiable Credentials](open_badge_assertions_as_verifiable_credentials.md)
+  - Use DIDs for recipient and issuer id
+  - LD signature compatibility
+- Credential Engine Registry integration
+  - Ability to link to CER credentials
+  - Example: an Open Badge could fully defined BadgeClass properties, link to CER, or both
+  - Reference: http://credentialfinder.org/credential/1/21st_Century_Skills_for_Workplace_Success
+- Move issuer property into the assertion to break assumption that whoever created the badge is the one that issued it
+- Expressiveness
+  - Amending an assertion with further evidence
+    - Living Badge
+    - Making evidence verifiable as well
+    - Identification of evidence provider
+  - Credentials that aren't considered valid until recipient has counter-signed
+    - GDPR compliance
+    - TODO: Kim
+- Discussion
+  - Is type in assertion or is it part of data that supports the assertion?
+    - Should badges always be microcredentials?
 
-- Wrap and sign an assertion with verifiable claims linked data signature
-- Assertion of a credential definition as defined by the Credential Engine Registry
-- Amending an assertion with further evidence
-- Assertion that isn't valid until it's been cosigned by the recipient
-- Add blockcerts transaction proof to signature
-- Use DIDs for recipient and issuer id
 
-# Efforts
-- [Open Badge Assertions as Verifiable Credentials](open_badge_assertions_as_verifiable_credentials.md)
+
+
+
