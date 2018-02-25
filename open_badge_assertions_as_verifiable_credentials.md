@@ -1,32 +1,33 @@
-# Open Badges Assertions as Verifiable Credentials
+# Open Badges Assertions as Verifiable Credentials Prototype
+This document presents an example of what a prototype credential could look like in JSON-LD described using the Open Badges vocabulary and expressed in the Verifiable Credentials envelope. 
 
-> We may want to break this up; i.e. work on DIDs after Verifiable Credentials
+## Goals Explored in this  (From [README](./README.md))
+- **VC Envelope**: Develop a proof of concept that uses Verifiable Credentials as a verification method for an Open Badges Assertion
+- **DID Recipient Identification**: Develop a proof of concept that uses a DID as Assertion recipient identifier
+- **DID Issuer Identification and Signing**: Develop a proof of concept that uses a DID as an Issuer id.
 
-## Goals
-1. Express Open Badge Assertions as Verifiable Credentials
-2. Allow the Open Badge Validator to be aware of LD Signature Verification (including Blockcerts)
-3. Allow recipients and issuers to be identified by DIDs
 
 ## Approach
 
 The basic structure is a Verifiable Credentials with an Open Badge Assertion embedded in the `claim`. In this example, the issuer and recipient are identified by DIDs.
 
-The new `verification` type is called `VerifiableClaim2017`. It allows us to bridge the Open Badges validator to Verifiable Credentials verification. The Open Badge validator will respond to this by delegating signature verification to an LD signature/verification library. 
+The new `verification` type is called `VerifiableClaim2018`. It allows us to bridge the Open Badges validator to Verifiable Credentials verification. The Open Badge validator will respond to this by delegating signature verification to an LD signature/verification library. 
 
 This example adds existing Open Badges data for recipient and issuer, even though this is duplicative. The recipient data could probably be dropped without much harm. If the DID spec and at least one DID Method Spec are ready enough for primetime, perhaps we could hydrate the issuer data from a resolved identity document. At least for now, OB spec and implementations expect id, type, name, url, and email values to exist for issuers, so this avoids a breaking change.
 
 ```json
 {
+  "@context": "http://example.com/TBD-OB-VC-Context-V1",
   "id": "https://some.university.edu/credentials/9732",
   "type": [
     "Credential",
     "OpenBadgeCredential"
   ],
   "issuer": "did:example:issuer_did",
-  "issued": "2017-06-29T14:58:57.461422+00:00",
+  "issued": "2018-02-28T14:58:57.461422+00:00",
   "claim": [
     {
-      "id": "did:example:recipient_did",
+      "id": "urn:uuid:437fc6ff-bb3c-4987-a4b7-be8661ff6f21",
       "type": "Assertion",
       "recipient": {
         "type": "id",
@@ -35,10 +36,10 @@ This example adds existing Open Badges data for recipient and issuer, even thoug
       },
       "badge": {
         "type": "BadgeClass",
-        "id": "https://some.university.edu/badges/6415",
+        "id": "urn:uuid:7aad3c57-3bfb-45ea-ae79-5a6023cc62e4",
         "name": "Certificate of Accomplishment",
         "image": "data:image/png;base64,...",
-        "description": "Lorem ipsum dolor sit amet, mei docendi concludaturque ad, cu nec   partem graece. Est aperiam consetetur cu, expetenda moderatius neglegentur ei nam, suas dolor laudem eam an.",
+        "description": "Lorem ipsum dolor sit amet, mei docendi concludaturque ad, cu nec partem graece. Est aperiam consetetur cu, expetenda moderatius neglegentur ei nam, suas dolor laudem eam an.",
         "criteria": {
           "narrative": "Nibh iriure ei nam, modo ridens neglegentur mel eu. At his cibo mucius."
         },
@@ -51,7 +52,7 @@ This example adds existing Open Badges data for recipient and issuer, even thoug
         }
       },
       "verification": {
-        "type": "VerifiableClaim2017"
+        "type": "VerifiableClaim2018"
       }
     }
   ],
@@ -63,6 +64,14 @@ This example adds existing Open Badges data for recipient and issuer, even thoug
 }
 ```
 
+## TODOs
+* Develop an actual prototype context file so that we can start conversation around what additions to the various vocabularies should be proposed (as well as gain the ability to actually produce a valid JSON-LD Signature)
+* Reference an appropriate LD Signature suite and provide a dummy implementation. This should be appropriate to use with 
+* Choose a DID resolver method and generate/publish the appropriate keys and DID document so it may be successfully resolved, and public key information may be discovered. 
+  - Actually LD-sign the example data using the generated keypair. 
+* Show implementation of the latest blockcerts draft in the LD signature
+
 ## Questions
 - Are other changes related to Recipient and Issuer use of DIDs? I.e. recipient `type` and `identity` fields; can we just use `@id` instead?
+  * We can consider `id` (aliased in OB)
 
