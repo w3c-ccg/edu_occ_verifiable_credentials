@@ -97,7 +97,7 @@ At this stage of CER, organizations are the main providers of the credentials. H
 - Can the BadgeClass be optional? 
 - If the BadgeClass is optional and the CER resource is not an Open Badge but another type of credential, is the verifiable credential still an Open Badge?
 
-##Scenarios (assuming Issuer property is in the assertion, not in the badge class and that the assertion links to a CER resource)
+## Scenarios (assuming Issuer property is in the assertion, not in the badge class and that the assertion links to a CER resource)
 - CER resource is [`ceterms:OpenBadge`] (http://credreg.net/ctdl/terms#OpenBadge); CER resource contains a single `ceterms:ownedBy` but not `ceterms:offeredBy`; Issuer property correlates with `ceterms:ownedBy`. BadgeClass is not present in the assertion.
 - CER resource is [`ceterms:OpenBadge`] (http://credreg.net/ctdl/terms#OpenBadge); CER resource contains a single `ceterms:ownedBy` as well as a single `ceterms:offeredBy`; Issuer property correlates with `ceterms:offeredBy`. BadgeClass is not present in the assertion.
 - CER resource is [`ceterms:OpenBadge`] (http://credreg.net/ctdl/terms#OpenBadge); CER resource contains multiple `ceterms:ownedBy` as well as a single `ceterms:offeredBy`; Issuer property does not correlates with `ceterms:ownedBy` or `ceterms:offeredBy`. BadgeClass is not present in the assertion.
