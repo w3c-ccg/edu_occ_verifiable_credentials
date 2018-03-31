@@ -23,6 +23,7 @@ This effort will result in requirements, use cases, and/or draft specs to be for
 4. **DID Issuer Identification and Signing**: Develop a proof of concept that uses a DID as an Issuer id.
   - Implement support for at least one did resolver method in the experimental fork of the Open Badges Validator to discover a relevant signing key and verify Linked Data Signature (at least one suite)
 5. **BadgeClass Flexibility**: Develop a proof of concept that uses the Open Badges Assertion class to assert issuance of an achievement defined by Credential Engine Registry data.
+ - See: [BadgeClass Flexibility](badgeclass_flexibility_cer.md)
   - Example: an Open Badge could fully defined BadgeClass properties, link to CER, or both
   - Reference: http://credentialfinder.org/credential/1/21st_Century_Skills_for_Workplace_Success
   - Add issuer property to the Assertion class to examine use cases that break assumption that whoever created the badge is the entity that issued it
